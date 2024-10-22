@@ -1,0 +1,125 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    margin: 0;
+}
+.icon{
+    color: #7a072e;;
+}
+.icon:hover{
+    color: #1100ff;
+}
+
+li.active .icon {
+    color: #e0e9e9; 
+}
+.text {
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+}
+.navigation{
+    position: relative;
+    width: 400px;
+    height: 70px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-family: "Poppins",sans-serif;
+}
+ul{
+    display: flex;
+    width: 350px;
+    justify-content: space-between;                                 
+    list-style: none; 
+    padding: 0;
+}
+li{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    color: #7a072e;
+    font-weight: 500;
+}
+a .icon{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+}
+li.active a .icon{
+    transform: translateY(-35px);
+}
+a .text{
+    position: absolute;
+    font-weight: 1000;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+    bottom: 5px;
+}
+li.active a .text{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.indicator{
+    position: absolute;
+    top: -50%;
+    left: 40px;
+    width: 70px;
+    height: 70px;
+    background: rgb(24, 26, 25);
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 6px solid #113fd8;
+    transition: 0.5s;
+}
+.indicator::before,
+.indicator::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+}
+.indicator::before{
+    left: -22px;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0  #0ad60a;
+}
+.indicator::after{
+    right: -22px;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0  #0ad60a
+}
+li.active~.indicator{
+    -x:0;
+    transform: translateX(var(--x));
+}
+li:nth-child(2).active~.indicator{--x: 70px;}
+li:nth-child(3).active~.indicator{--x: 140px;}
+li:nth-child(4).active~.indicator{--x: 210px;}
+li:nth-child(5).active~.indicator{--x: 280px;}
